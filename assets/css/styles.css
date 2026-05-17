@@ -771,12 +771,8 @@ textarea {
 }
 
 @media (max-width: 720px) {
-  .top-strip .container {
-    display: block;
-  }
-
-  .top-strip span {
-    display: block;
+  .top-strip {
+    display: none;
   }
 
   .brand {
@@ -808,13 +804,16 @@ textarea {
     width: 100%;
   }
 
-  .hero-points,
   .grid-2,
   .grid-3,
   .amenity-grid,
-  .gallery-grid,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-points,
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .form-grid {

@@ -36,6 +36,14 @@ document.querySelectorAll(".booking-form").forEach((form) => {
   });
 });
 
+document.querySelectorAll(".date-format").forEach((input) => {
+  input.addEventListener("input", () => {
+    const digits = input.value.replace(/\D/g, "").slice(0, 8);
+    const parts = [digits.slice(0, 2), digits.slice(2, 4), digits.slice(4, 8)].filter(Boolean);
+    input.value = parts.join("-");
+  });
+});
+
 const menuToggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".menu");
 

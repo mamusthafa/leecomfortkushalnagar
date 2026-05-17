@@ -29,8 +29,8 @@
           <form class="booking-form">
             <div class="form-grid">
               <div class="field full"><label for="contact-name">Name</label><input id="contact-name" name="name" autocomplete="name" placeholder="Your name"></div>
-              <div class="field"><label for="contact-checkin">Check-in</label><input id="contact-checkin" name="checkin" type="date"></div>
-              <div class="field"><label for="contact-checkout">Check-out</label><input id="contact-checkout" name="checkout" type="date"></div>
+              <div class="field"><label for="contact-checkin">Check-in</label><input id="contact-checkin" class="date-format" name="checkin" type="text" inputmode="numeric" autocomplete="off" placeholder="dd-mm-YYYY" maxlength="10" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"></div>
+              <div class="field"><label for="contact-checkout">Check-out</label><input id="contact-checkout" class="date-format" name="checkout" type="text" inputmode="numeric" autocomplete="off" placeholder="dd-mm-YYYY" maxlength="10" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"></div>
               <div class="field"><label for="contact-guests">Guests</label><select id="contact-guests" name="guests"><option value="">Select</option><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></div>
               <div class="field"><label for="contact-room">Room</label><select id="contact-room" name="room"><option value="">Any room</option><option>AC Room</option><option>Non-AC Room</option><option>Family Room</option></select></div>
               <div class="field full"><label for="contact-note">Message</label><textarea id="contact-note" name="note" placeholder="Any request"></textarea></div>
