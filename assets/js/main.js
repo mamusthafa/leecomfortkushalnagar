@@ -1,10 +1,27 @@
 const phoneNumber = "919591904010";
-const defaultMessage = "Hi Lee Comfort Kushalnagar, I want to check room availability.";
+const defaultMessage = "Hi Lee Comfort Kushalnagar, I want to check availability for a hotel room or Coorg homestay.";
 
 function openWhatsApp(message) {
+  if (typeof gtag === "function") {
+    gtag("event", "booking_intent", {
+      event_category: "lead",
+      event_label: "whatsapp_click"
+    });
+  }
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message || defaultMessage)}`;
   window.open(url, "_blank", "noopener");
 }
+
+document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    if (typeof gtag === "function") {
+      gtag("event", "booking_intent", {
+        event_category: "lead",
+        event_label: "phone_click"
+      });
+    }
+  });
+});
 
 document.querySelectorAll("[data-whatsapp]").forEach((link) => {
   link.addEventListener("click", (event) => {
@@ -24,12 +41,12 @@ document.querySelectorAll(".booking-form").forEach((form) => {
     const room = data.get("room") || "";
     const note = data.get("note") || "";
     const message = [
-      "Hi Lee Comfort Kushalnagar, I want to check room availability.",
+      "Hi Lee Comfort Kushalnagar, I want to check availability for a hotel room or Coorg homestay.",
       name ? `Name: ${name}` : "",
       guests ? `Guests: ${guests}` : "",
       checkin ? `Check-in: ${checkin}` : "",
       checkout ? `Check-out: ${checkout}` : "",
-      room ? `Room type: ${room}` : "",
+      room ? `Stay type: ${room}` : "",
       note ? `Message: ${note}` : ""
     ].filter(Boolean).join("\n");
     openWhatsApp(message);
